@@ -43,7 +43,9 @@ function App() {
 
   //adding to local storage
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasks));
+    if (tasks.length > 0) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasks));
+    }
   }, [tasks]);
 
   return (
