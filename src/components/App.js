@@ -5,10 +5,10 @@ import AddTask from "./AddTask";
 import TodoList from "./TodoList";
 function App() {
   return (
-    <div>
+    <div className="ui container">
       <Header />
       <AddTask />
-      {/*<TodoList /> */}
+      <TodoList />
     </div>
   );
 }
