@@ -12,9 +12,8 @@ class AddTask extends React.Component {
       alert("please enter task");
       return;
     }
-    this.props.addTaskHandler(this.state);
-    this.setState({ task: "" });
-    console.log(this.state);
+    this.props.addTaskHandler(this.state); //state contains task
+    //this.setState({ task: "" });
   };
   //we need to pass this object to app component. we will use props to pass data from child to parent
   render() {
