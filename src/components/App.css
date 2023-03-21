@@ -10,6 +10,10 @@
 .heading {
   margin-top: 100px;
 }
+
+body {
+  background-color: rgb(194, 244, 194);
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
