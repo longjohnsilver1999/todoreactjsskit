@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { uuid } from "uuidv4";
 // import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import Header from "./Header";
 import AddTask from "./AddTask";
 import TodoList from "./TodoList";
+import TaskDetail from "./TaskDetail";
 function App() {
   const LOCAL_STORAGE_KEY = "tasks";
   // //we will use props to pass these tasks
@@ -50,9 +52,33 @@ function App() {
 
   return (
     <div className="ui container">
-      <Header />
-      <AddTask addTaskHandler={addTaskHandler} />
-      <TodoList tasks={tasks} getTaskId={removeTaskHandler} />
+      <Router>
+        <Header />
+        <Switch>
+          <Route
+            path="/"
+            exact
+            render={(props) => (
+              <TodoList
+                {...props}
+                tasks={tasks}
+                getTaskId={removeTaskHandler}
+              />
+            )}
+          />
+          <Route
+            path="/add"
+            render={(props) => (
+              <AddTask {...props} addTaskHandler={addTaskHandler} />
+            )}
+          />
+
+          {/* //adding path */}
+          {/* <AddTask addTaskHandler={addTaskHandler} />
+        <TodoList tasks={tasks} getTaskId={removeTaskHandler} /> */}
+          <Route path="/task/:id" component={TaskDetail} />
+        </Switch>
+      </Router>
     </div>
   );
 }
