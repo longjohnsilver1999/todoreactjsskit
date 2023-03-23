@@ -19,13 +19,25 @@ const TaskListItem = (props) => {
             <div>{task}</div>
           </Link>
         </a>
-      </div>
 
-      <i
-        className="trash alternate outline icon"
-        style={{ color: "blue", marginLeft: "90%", marginTop: "20px" }}
-        onClick={() => props.clickHandler(id)}
-      ></i>
+        <i
+          className="trash alternate outline icon"
+          style={{ color: "blue", marginLeft: "20px", marginTop: "20px" }}
+          onClick={() => props.clickHandler(id)}
+        ></i>
+        <a
+          onClick={() => {
+            window.location.href = `/edit`;
+          }}
+        >
+          <Link to={{ pathname: `/edit`, state: { task: props.task } }}>
+            <i
+              className="edit alternate outline icon"
+              style={{ color: "purple", marginTop: "20px" }}
+            ></i>
+          </Link>
+        </a>
+      </div>
     </div>
   );
 };
